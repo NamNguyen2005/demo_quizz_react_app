@@ -1,5 +1,6 @@
 import React from "react";
-
+import "./DisplayInfo.scss";
+import logo from ".././logo.svg";
 class DisplayInfo extends React.Component {
   state = {
     showListUser: true,
@@ -11,9 +12,9 @@ class DisplayInfo extends React.Component {
   };
   render() {
     const { listUsers } = this.props;
-    console.log(">>> check props :", listUsers);
     return (
-      <div>
+      <div className="display-info-container">
+        <img src={logo} />
         <button
           onClick={() => {
             this.displayListUser();
