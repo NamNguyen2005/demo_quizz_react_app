@@ -1,0 +1,25 @@
+.admin-container {
+  display: flex;
+  height: 100vh;
+
+  .admin-sidebar {
+    width: 270px;
+    min-width: 270px;
+
+    .pro-sidebar {
+      height: 100vh;
+
+      .pro-menu-item {
+        &:hover {
+          color: #000 !important;
+        }
+      }
+    }
+  }
+
+  .admin-content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+}

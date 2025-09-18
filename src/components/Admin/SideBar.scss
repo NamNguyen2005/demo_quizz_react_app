@@ -1,25 +1,28 @@
-.admin-container {
+.sidebar-btn-wrapper {
   display: flex;
-  height: 100vh;
-
-  .admin-sidebar {
-    width: 270px;
-    min-width: 270px;
-
-    .pro-sidebar {
-      height: 100vh;
-
-      .pro-menu-item {
-        &:hover {
-          color: #000 !important;
-        }
-      }
+  align-items: center;
+  justify-content: center;
+  .sidebar-btn {
+    transition: width 0.3s;
+    width: 150px;
+    padding: 1px 15px;
+    border-radius: 40px;
+    background: rgba(255, 255, 255, 0.05);
+    color: #adadad;
+    text-decoration: none;
+    margin: 0 auto;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    span {
+      margin-left: 5px;
+      font-size: 13px;
     }
-  }
-
-  .admin-content {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
+    &:hover {
+      color :black
+    }
   }
 }

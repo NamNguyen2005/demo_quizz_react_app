@@ -10,12 +10,12 @@ import {
 import {
   FaTachometerAlt,
   FaGem,
-  FaList,
   FaGithub,
-  FaRegLaughWink,
-  FaHeart,
 } from "react-icons/fa";
 import sidebarBg from "../../asset/bg2.jpg";
+import "react-pro-sidebar/dist/css/styles.css";
+import { DiReact } from "react-icons/di";
+import "./SideBar.scss";
 const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
   return (
     <div>
@@ -40,7 +40,8 @@ const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
               whiteSpace: "nowrap",
             }}
           >
-            Quiz Admin
+            <DiReact size={"3em"} color={"00bfff"} />
+            <span>Quiz Admin</span>
           </div>
         </SidebarHeader>
 
@@ -52,18 +53,16 @@ const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
             >
               Dashboard
             </MenuItem>
-            <MenuItem icon={<FaGem />}>Manage Users</MenuItem>
-            <MenuItem icon={<FaList />}>Manage Questions</MenuItem>
           </Menu>
           <Menu iconShape="circle">
             <SubMenu
               suffix={<span className="badge yellow">3</span>}
               title="Features"
-              icon={<FaRegLaughWink />}
+              icon={<FaGem />}
             >
-              <MenuItem>Quizzes</MenuItem>
-              <MenuItem>Results</MenuItem>
-              <MenuItem>Settings</MenuItem>
+              <MenuItem>Quan ly users</MenuItem>
+              <MenuItem>Quan ly quiz</MenuItem>
+              <MenuItem>Quan ly cau hoi</MenuItem>
             </SubMenu>
           </Menu>
         </SidebarContent>
@@ -76,7 +75,7 @@ const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
             }}
           >
             <a
-              href="https://github.com/azouaoui-med/react-pro-sidebar"
+              href="https://github.com/NamNguyen2005"
               target="_blank"
               className="sidebar-btn"
               rel="noopener noreferrer"
