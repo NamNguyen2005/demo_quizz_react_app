@@ -3,23 +3,20 @@
   height: 100vh;
 
   .admin-sidebar {
-    width: 270px;
-    min-width: 270px;
-
     .pro-sidebar {
-      height: 100vh;
-
-      .pro-menu-item {
-        &:hover {
-          color: #000 !important;
-        }
-      }
+      height: 100vh !important;
     }
   }
 
   .admin-content {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
+    width: 100%;
+    .admin-header {
+      height: 40px;
+      border: solid 1px red;
+    }
+
+    .admin-main {
+      border: solid 1px blue;
+    }
   }
 }

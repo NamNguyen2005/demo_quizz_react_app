@@ -7,15 +7,13 @@ import {
   SidebarFooter,
   SidebarContent,
 } from "react-pro-sidebar";
-import {
-  FaTachometerAlt,
-  FaGem,
-  FaGithub,
-} from "react-icons/fa";
+import { FaTachometerAlt, FaGem, FaGithub } from "react-icons/fa";
 import sidebarBg from "../../asset/bg2.jpg";
 import "react-pro-sidebar/dist/css/styles.css";
 import { DiReact } from "react-icons/di";
 import "./SideBar.scss";
+import { Link } from "react-router-dom";
+
 const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
   return (
     <div>
@@ -52,6 +50,7 @@ const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
               suffix={<span className="badge red">New</span>}
             >
               Dashboard
+              <Link to="/admin" />
             </MenuItem>
           </Menu>
           <Menu iconShape="circle">
@@ -60,7 +59,10 @@ const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
               title="Features"
               icon={<FaGem />}
             >
-              <MenuItem>Quan ly users</MenuItem>
+              <MenuItem>
+                Quan ly users
+                <Link to="/admin/manage-user" />
+              </MenuItem>
               <MenuItem>Quan ly quiz</MenuItem>
               <MenuItem>Quan ly cau hoi</MenuItem>
             </SubMenu>
@@ -75,7 +77,8 @@ const SideBar = ({ collapsed, rtl, toggled, handleToggleSidebar }) => {
             }}
           >
             <a
-              href="https://github.com/NamNguyen2005"
+              href="https://github.com/NamNguyen2005
+              "
               target="_blank"
               className="sidebar-btn"
               rel="noopener noreferrer"
