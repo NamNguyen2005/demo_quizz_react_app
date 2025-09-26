@@ -2,7 +2,8 @@ import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { FcPlus } from "react-icons/fc";
-import axios from "axios";
+import { toast } from "react-toastify";
+import createUser from "../../../services/createUser";
 
 const ModalAddNewUsers = (props) => {
   const { show, setShow } = props;
@@ -27,23 +28,40 @@ const ModalAddNewUsers = (props) => {
       setImg(e.target.files[0]);
     }
   };
+  // validate email on stackoverflows
+  const validateEmail = (email) => {
+  return String(email)
+    .toLowerCase()
+    .match(
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+    );
+};
+
   const handleSendApi = async () => {
-    const data = new FormData();
-    data.append("email", email);
-    data.append("password", password);
-    data.append("username", username);
-    data.append("role", role);
-    data.append("img", img);
-    let res = await axios.post("http://localhost:8081/api/v1/participant", data);
-    console.log(">>> check res: ", res); 
+    const isValidEmail = validateEmail(email)
+    if(!isValidEmail){
+        toast.error("Invalid email");
+        return;
+    }
+    if(!password){
+        toast.error("Invalid password");
+        return;
+    }
+    // sumbit data
+    let data = await createUser(email, password, username, role, img);
+    console.log(">>> check res: ",data);
+    if(data && data.EC === 0){
+        toast.success(data.EM);
+        handleClose();
+    }
+     if(data &&data.EC !== 0){
+        toast.error(data.EM);
+        handleClose();
+    }
   };
 
   return (
     <>
-      {/* <Button variant="primary" onClick={handleShow}>
-        Add new user
-      </Button> */}
-
       <Modal
         show={show}
         onHide={handleClose}
